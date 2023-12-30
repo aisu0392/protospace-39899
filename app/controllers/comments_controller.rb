@@ -5,9 +5,8 @@ class CommentsController < ApplicationController
     @comment.user = current_user # ログインユーザーをコメントのユーザーとして設定する例
 
     if @comment.save
-      redirect_to @prototype, notice: 'コメントが投稿されました'
+      redirect_to @prototype
     else
-      flash.now[:alert] = 'コメントの投稿に失敗しました'
       render 'prototypes/show'
     end
   end
