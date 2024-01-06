@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def create
     @prototype = Prototype.find(params[:prototype_id])
     @comment = @prototype.comments.build(comment_params)
+    @comments = @prototype.comments
     @comment.user = current_user # ログインユーザーをコメントのユーザーとして設定する例
 
     if @comment.save
